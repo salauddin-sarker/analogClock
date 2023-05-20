@@ -1,0 +1,107 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+:root{
+    --balck_color: #18191a;
+    --primary_color: #f6f7fb;
+    --red_color: #e74c3c;
+    --white_color: #ffffff;
+}
+main{
+    align-items: center;
+    background: var(--primary_color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+}
+main.dark{
+    --balck_color: #ffffff;
+    --primary_color: #242526;
+    --red_color: #e74c3c;
+    --white_color: #18191a;
+}
+.container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.container .clock{
+    align-items: center;
+    background-color: var(--white_color);
+    box-shadow: 0 15px  25px rgba(0, 0, 0, 0.1),0 25px  45px rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    display: flex;
+    height: 400px;
+    justify-content: center;
+    position: relative;
+    width: 400px;
+}
+.clock label{
+    inset: 20px;
+    position: absolute;
+    transform: rotate(calc(var(--i) * (360deg / 12)));
+    text-align: center;
+}
+.clock label span{
+    color: var(--balck_color);
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 600;
+    transform: rotate(calc(var(--i) * (-360deg / 12)));
+}
+.container .indicator{
+    display: flex;
+    height: 10px;
+    justify-content: center;
+    position: absolute;
+    width: 10px;
+}
+.indicator::before{
+    background: var(--balck_color);
+    border: 4px solid var(--red_color);
+    border-radius: 50%;
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+}
+.indicator .hand{
+    background-color: var(--red_color);
+    bottom: 0;
+    border-radius: 25px;
+    height: 130px;
+    position: absolute;
+    transform-origin: bottom;
+    width: 4px;
+}
+.hand.minute{
+    background-color: var(--balck_color);
+    height: 120px;
+    width: 5px;
+}
+.hand.hour{
+    background-color: var(--balck_color);
+    height: 100px;
+    width: 8px;
+}
+.mode_switch{
+    background-color: var(--balck_color);
+    box-shadow: 0 5px  15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    color: var(--white_color);
+    display: inline-block;
+    font-weight: 400;
+    font-size: 22px;
+    padding: 10px 20px;
+}
